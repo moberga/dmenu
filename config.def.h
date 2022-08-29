@@ -51,17 +51,18 @@ static int restrict_return = 0;   /* -1 option; if 1, disables shift-return and 
 
 /* -fn option overrides fonts[0]; default X11 font or font set */
 #if PANGO_PATCH
-static char font[] = "monospace 10";
-#else
-#if XRESOURCES_PATCH
-static char *fonts[] =
-#else
-static const char *fonts[] = 
-#endif // XRESOURCES_PATCH
+	static char font[] = "IBM Plex Mono:size=12";
+	#else
+		#if XRESOURCES_PATCH
+			static char *fonts[] = "IBM Plex Mono:size=12"; 
+			#else
+				static const char *fonts[] = 
+		#endif // XRESOURCES_PATCH
 {
-	"Hack:pixelsize=11:antialias=true:autohint=true",
-	"JoyPixels:pixelsize=8:antialias=true:autohint=true"
-};
+	"IBM Plex Mono:size=12",
+	"Hack:pixelsize=14:antialias=true:autohint=true",
+	"JoyPixels:pixelsize=12:antialias=true:autohint=true"
+		};
 #endif // PANGO_PATCH
 
 
@@ -108,7 +109,8 @@ static unsigned int lines      = 0;
  * 8. solarized-light.h
  * 9. tomorrow-night.h
  */
-#include "colors/doom-one.h"
+/* #include "colors/gruvbox-dark.h" */
+#include "/home/rob/.cache/wal/colors-wal-dmenu.h"
 
 #if GRID_PATCH
 /* -g option; if nonzero, dmenu uses a grid comprised of columns and lines */
